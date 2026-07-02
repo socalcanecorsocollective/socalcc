@@ -29,10 +29,15 @@ export function Nav() {
         }`}
       >
         <div className={`absolute inset-x-0 bottom-0 hairline transition-opacity ${scrolled ? "opacity-100" : "opacity-0"}`} />
-        <nav className="container-editorial flex items-center justify-between py-5">
-          <a href="#top" className="flex items-center gap-3" aria-label="SCCC home">
-            <img src={glyph.url} alt="" className="h-9 w-auto" />
-            <span className="hidden sm:inline text-[0.7rem] tracking-[0.35em] font-semibold text-cream/80">S·C·C·C</span>
+        <nav className="container-editorial flex items-center justify-between py-4">
+          <a href="#top" className="flex items-center gap-3 group" aria-label="SCCC home">
+            <span className="relative flex items-center justify-center w-11 h-11 border border-gold/40 group-hover:border-gold transition-colors">
+              <img src={glyph.url} alt="" className="h-7 w-auto" />
+            </span>
+            <span className="hidden sm:flex flex-col leading-none">
+              <span className="text-[0.65rem] tracking-[0.4em] font-bold text-cream">S·C·C·C</span>
+              <span className="text-[0.55rem] tracking-[0.28em] text-muted-ink mt-1">Est. MMXX</span>
+            </span>
           </a>
           <ul className="hidden md:flex items-center gap-9">
             {links.map((l) => (

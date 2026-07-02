@@ -4,36 +4,6 @@ import type { Product } from "@/lib/products";
 
 const ease = [0.19, 1, 0.22, 1] as const;
 
-function PlaceholderFrame({ label, tactical }: { label: string; tactical?: boolean }) {
-  return (
-    <div
-      className={`absolute inset-0 flex items-center justify-center overflow-hidden ${
-        tactical ? "bg-smoke" : "bg-panel"
-      }`}
-    >
-      {tactical && (
-        <div
-          className="absolute inset-0 opacity-[0.18]"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(0deg, transparent 0 22px, rgba(244,240,232,.12) 22px 23px), repeating-linear-gradient(90deg, transparent 0 22px, rgba(244,240,232,.12) 22px 23px)",
-          }}
-        />
-      )}
-      <div className="pointer-events-none absolute inset-4 border border-gold/15" />
-      <span
-        className="relative font-display text-cream/10 select-none"
-        style={{ fontSize: "clamp(3rem, 8vw, 6rem)", letterSpacing: "-0.02em" }}
-      >
-        {label.split(" ").slice(-1)[0].slice(0, 3).toUpperCase()}
-      </span>
-      <span className="absolute bottom-3 left-4 eyebrow text-cream/30 text-[0.55rem]">
-        {tactical ? "SCCC · PACK GEAR" : "SCCC · APPAREL"}
-      </span>
-    </div>
-  );
-}
-
 function ProductCard({
   product,
   aspect,
@@ -52,21 +22,35 @@ function ProductCard({
       transition={{ duration: 0.9, ease }}
       className="group block"
     >
-      <div className={`relative w-full ${aspect} overflow-hidden`}>
-        <motion.div
-          className="absolute inset-0"
-          whileHover={{ scale: 1.05 }}
-          transition={{ duration: 1.2, ease }}
-        >
-          <PlaceholderFrame label={product.name} tactical={tactical} />
-        </motion.div>
+      <div className={`relative w-full ${aspect} overflow-hidden bg-panel`}>
+        <motion.img
+          src={product.image}
+          alt={product.name}
+          loading="lazy"
+          width={1024}
+          height={1280}
+          className="absolute inset-0 w-full h-full object-cover"
+          whileHover={{ scale: 1.06 }}
+          transition={{ duration: 1.4, ease }}
+        />
+        {/* dark gradient for legibility */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
+        <div className="pointer-events-none absolute inset-3 border border-gold/15 group-hover:border-gold/40 transition-colors duration-500" />
+
         {product.isNew && (
           <span className="absolute top-4 left-4 bg-gold text-ink px-2.5 py-1 text-[0.6rem] tracking-[0.28em] uppercase font-bold">
             New
           </span>
         )}
-        <div className="absolute inset-x-4 bottom-4 flex items-end justify-between opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 ease-out">
-          <span className="eyebrow text-cream">View →</span>
+        {tactical && (
+          <span className="absolute top-4 right-4 eyebrow text-cream/70 text-[0.55rem] bg-ink/60 px-2 py-1 backdrop-blur-sm">
+            Pack Gear
+          </span>
+        )}
+
+        <div className="absolute inset-x-5 bottom-5 flex items-end justify-between opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 ease-out">
+          <span className="eyebrow text-gold text-[0.65rem]">View →</span>
+          <span className="font-sans text-cream text-xs tracking-widest">${product.price}</span>
         </div>
       </div>
       <div className="mt-5 flex items-start justify-between gap-4">
@@ -89,7 +73,6 @@ function ProductCard({
   );
 }
 
-// asymmetric magazine layout — cycles through varied aspects
 const apparelAspects = [
   "aspect-[4/5]",
   "aspect-[3/4] md:mt-16",
