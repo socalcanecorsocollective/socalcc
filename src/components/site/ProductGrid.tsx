@@ -109,7 +109,7 @@ export function ProductGrid({
 }: {
   id: string;
   eyebrow: string;
-  title: string;
+  title: ReactNode;
   subtitle?: string;
   products: Product[];
   tactical?: boolean;

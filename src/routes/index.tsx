@@ -47,8 +47,9 @@ function Home() {
           eyebrow="Chapter I · Apparel"
           title={
             <>
-              For the <span style={{ fontFamily: "var(--font-blackletter)", fontStyle: "italic" }} className="text-gold normal-case">Guardian</span>.
-            </> as unknown as string
+              For the{" "}
+              <span style={{ fontFamily: "var(--font-blackletter)", fontStyle: "italic" }} className="text-gold normal-case">Guardian</span>.
+            </>
           }
           subtitle="Heavyweight cottons, hand-finished seams, and title-card typography. Cut for the ones who stand watch."
           products={apparel}
@@ -59,8 +60,9 @@ function Home() {
           eyebrow="Chapter III · Pack Gear"
           title={
             <>
-              For the <span style={{ fontFamily: "var(--font-blackletter)", fontStyle: "italic" }} className="text-gold normal-case">Cane Corso</span>.
-            </> as unknown as string
+              For the{" "}
+              <span style={{ fontFamily: "var(--font-blackletter)", fontStyle: "italic" }} className="text-gold normal-case">Cane Corso</span>.
+            </>
           }
           subtitle="MOLLE-ready harnesses, full-coverage vests, and lead systems engineered for working guardian breeds."
           products={packGear}
