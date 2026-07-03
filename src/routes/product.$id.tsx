@@ -100,7 +100,7 @@ function ProductPage() {
                 <div className="mb-8">
                   <p className="text-[0.6rem] tracking-[0.32em] uppercase text-muted-ink mb-3">Size</p>
                   <div className="flex flex-wrap gap-2">
-                    {product.sizes.map((s) => (
+                    {product.sizes.map((s: string) => (
                       <button
                         key={s}
                         onClick={() => setSize(s)}
