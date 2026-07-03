@@ -1,5 +1,6 @@
 import glyph from "@/assets/glyph.png.asset.json";
 import wordmark from "@/assets/wordmark.png.asset.json";
+import { Link } from "@tanstack/react-router";
 
 export function Footer() {
   return (
@@ -9,8 +10,8 @@ export function Footer() {
           <div className="md:col-span-5">
             <img src={glyph.url} alt="SCCC glyph" className="h-14 w-auto mb-6" />
             <p className="text-mist text-sm max-w-sm leading-relaxed">
-              SoCal Cane Corso Co. — a guardian brand of tactical apparel and
-              pack gear. Built on instinct. Defined by discipline.
+              SoCal Cane Corso Co. — an artist-run house of guardian apparel and
+              pack gear. Built on instinct. Defined by discipline. Loyal for life.
             </p>
           </div>
 
@@ -18,17 +19,19 @@ export function Footer() {
             <div>
               <p className="eyebrow mb-4 text-cream/50">Shop</p>
               <ul className="space-y-2.5 text-sm text-mist">
-                <li><a href="#apparel" className="hover:text-gold transition-colors">Apparel</a></li>
-                <li><a href="#gear" className="hover:text-gold transition-colors">Pack Gear</a></li>
-                <li><a href="#reserve" className="hover:text-gold transition-colors">Reserve</a></li>
+                <li><Link to="/shop" className="hover:text-gold">All</Link></li>
+                <li><Link to="/shop" className="hover:text-gold">Apparel</Link></li>
+                <li><Link to="/shop" className="hover:text-gold">Pack Gear</Link></li>
+                <li><Link to="/shop" className="hover:text-gold">Patches & Prints</Link></li>
               </ul>
             </div>
             <div>
               <p className="eyebrow mb-4 text-cream/50">House</p>
               <ul className="space-y-2.5 text-sm text-mist">
-                <li><a href="#bloodline" className="hover:text-gold transition-colors">The Bloodline</a></li>
-                <li><a href="#lookbook" className="hover:text-gold transition-colors">Lookbook</a></li>
-                <li><a href="#reserve" className="hover:text-gold transition-colors">Contact</a></li>
+                <li><Link to="/collective" className="hover:text-gold">Collective</Link></li>
+                <li><Link to="/drops" className="hover:text-gold">Drops</Link></li>
+                <li><Link to="/bloodline" className="hover:text-gold">Bloodline</Link></li>
+                <li><Link to="/reserve" className="hover:text-gold">Reserve</Link></li>
               </ul>
             </div>
           </div>
@@ -36,9 +39,9 @@ export function Footer() {
           <div className="md:col-span-3 md:text-right">
             <p className="eyebrow mb-4 text-cream/50 md:text-right">Follow</p>
             <ul className="space-y-2.5 text-sm text-mist md:text-right">
-              <li><a href="#" className="hover:text-gold transition-colors">Instagram</a></li>
-              <li><a href="#" className="hover:text-gold transition-colors">TikTok</a></li>
-              <li><a href="#" className="hover:text-gold transition-colors">YouTube</a></li>
+              <li><a href="#" className="hover:text-gold">Instagram</a></li>
+              <li><a href="#" className="hover:text-gold">TikTok</a></li>
+              <li><a href="#" className="hover:text-gold">YouTube</a></li>
             </ul>
           </div>
         </div>

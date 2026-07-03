@@ -9,38 +9,188 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ShopRouteImport } from './routes/shop'
+import { Route as ReserveRouteImport } from './routes/reserve'
+import { Route as LookbookRouteImport } from './routes/lookbook'
+import { Route as DropsRouteImport } from './routes/drops'
+import { Route as CollectiveRouteImport } from './routes/collective'
+import { Route as BloodlineRouteImport } from './routes/bloodline'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProductIdRouteImport } from './routes/product.$id'
+import { Route as ArtistIdRouteImport } from './routes/artist.$id'
 
+const ShopRoute = ShopRouteImport.update({
+  id: '/shop',
+  path: '/shop',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReserveRoute = ReserveRouteImport.update({
+  id: '/reserve',
+  path: '/reserve',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LookbookRoute = LookbookRouteImport.update({
+  id: '/lookbook',
+  path: '/lookbook',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DropsRoute = DropsRouteImport.update({
+  id: '/drops',
+  path: '/drops',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollectiveRoute = CollectiveRouteImport.update({
+  id: '/collective',
+  path: '/collective',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BloodlineRoute = BloodlineRouteImport.update({
+  id: '/bloodline',
+  path: '/bloodline',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductIdRoute = ProductIdRouteImport.update({
+  id: '/product/$id',
+  path: '/product/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ArtistIdRoute = ArtistIdRouteImport.update({
+  id: '/artist/$id',
+  path: '/artist/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/bloodline': typeof BloodlineRoute
+  '/collective': typeof CollectiveRoute
+  '/drops': typeof DropsRoute
+  '/lookbook': typeof LookbookRoute
+  '/reserve': typeof ReserveRoute
+  '/shop': typeof ShopRoute
+  '/artist/$id': typeof ArtistIdRoute
+  '/product/$id': typeof ProductIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/bloodline': typeof BloodlineRoute
+  '/collective': typeof CollectiveRoute
+  '/drops': typeof DropsRoute
+  '/lookbook': typeof LookbookRoute
+  '/reserve': typeof ReserveRoute
+  '/shop': typeof ShopRoute
+  '/artist/$id': typeof ArtistIdRoute
+  '/product/$id': typeof ProductIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/bloodline': typeof BloodlineRoute
+  '/collective': typeof CollectiveRoute
+  '/drops': typeof DropsRoute
+  '/lookbook': typeof LookbookRoute
+  '/reserve': typeof ReserveRoute
+  '/shop': typeof ShopRoute
+  '/artist/$id': typeof ArtistIdRoute
+  '/product/$id': typeof ProductIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/bloodline'
+    | '/collective'
+    | '/drops'
+    | '/lookbook'
+    | '/reserve'
+    | '/shop'
+    | '/artist/$id'
+    | '/product/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/bloodline'
+    | '/collective'
+    | '/drops'
+    | '/lookbook'
+    | '/reserve'
+    | '/shop'
+    | '/artist/$id'
+    | '/product/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/bloodline'
+    | '/collective'
+    | '/drops'
+    | '/lookbook'
+    | '/reserve'
+    | '/shop'
+    | '/artist/$id'
+    | '/product/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BloodlineRoute: typeof BloodlineRoute
+  CollectiveRoute: typeof CollectiveRoute
+  DropsRoute: typeof DropsRoute
+  LookbookRoute: typeof LookbookRoute
+  ReserveRoute: typeof ReserveRoute
+  ShopRoute: typeof ShopRoute
+  ArtistIdRoute: typeof ArtistIdRoute
+  ProductIdRoute: typeof ProductIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/shop': {
+      id: '/shop'
+      path: '/shop'
+      fullPath: '/shop'
+      preLoaderRoute: typeof ShopRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reserve': {
+      id: '/reserve'
+      path: '/reserve'
+      fullPath: '/reserve'
+      preLoaderRoute: typeof ReserveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lookbook': {
+      id: '/lookbook'
+      path: '/lookbook'
+      fullPath: '/lookbook'
+      preLoaderRoute: typeof LookbookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/drops': {
+      id: '/drops'
+      path: '/drops'
+      fullPath: '/drops'
+      preLoaderRoute: typeof DropsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collective': {
+      id: '/collective'
+      path: '/collective'
+      fullPath: '/collective'
+      preLoaderRoute: typeof CollectiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/bloodline': {
+      id: '/bloodline'
+      path: '/bloodline'
+      fullPath: '/bloodline'
+      preLoaderRoute: typeof BloodlineRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +198,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/product/$id': {
+      id: '/product/$id'
+      path: '/product/$id'
+      fullPath: '/product/$id'
+      preLoaderRoute: typeof ProductIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/artist/$id': {
+      id: '/artist/$id'
+      path: '/artist/$id'
+      fullPath: '/artist/$id'
+      preLoaderRoute: typeof ArtistIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BloodlineRoute: BloodlineRoute,
+  CollectiveRoute: CollectiveRoute,
+  DropsRoute: DropsRoute,
+  LookbookRoute: LookbookRoute,
+  ReserveRoute: ReserveRoute,
+  ShopRoute: ShopRoute,
+  ArtistIdRoute: ArtistIdRoute,
+  ProductIdRoute: ProductIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,77 +1,6 @@
 import type { ReactNode } from "react";
-import { motion } from "framer-motion";
-import type { Product } from "@/lib/products";
-
-const ease = [0.19, 1, 0.22, 1] as const;
-
-function ProductCard({
-  product,
-  aspect,
-  tactical,
-}: {
-  product: Product;
-  aspect: string;
-  tactical?: boolean;
-}) {
-  return (
-    <motion.a
-      href="#reserve"
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10%" }}
-      transition={{ duration: 0.9, ease }}
-      className="group block"
-    >
-      <div className={`relative w-full ${aspect} overflow-hidden bg-panel`}>
-        <motion.img
-          src={product.image}
-          alt={product.name}
-          loading="lazy"
-          width={1024}
-          height={1280}
-          className="absolute inset-0 w-full h-full object-cover"
-          whileHover={{ scale: 1.06 }}
-          transition={{ duration: 1.4, ease }}
-        />
-        {/* dark gradient for legibility */}
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
-        <div className="pointer-events-none absolute inset-3 border border-gold/15 group-hover:border-gold/40 transition-colors duration-500" />
-
-        {product.isNew && (
-          <span className="absolute top-4 left-4 bg-gold text-ink px-2.5 py-1 text-[0.6rem] tracking-[0.28em] uppercase font-bold">
-            New
-          </span>
-        )}
-        {tactical && (
-          <span className="absolute top-4 right-4 eyebrow text-cream/70 text-[0.55rem] bg-ink/60 px-2 py-1 backdrop-blur-sm">
-            Pack Gear
-          </span>
-        )}
-
-        <div className="absolute inset-x-5 bottom-5 flex items-end justify-between opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-700 ease-out">
-          <span className="eyebrow text-gold text-[0.65rem]">View →</span>
-          <span className="font-sans text-cream text-xs tracking-widest">${product.price}</span>
-        </div>
-      </div>
-      <div className="mt-5 flex items-start justify-between gap-4">
-        <div>
-          <h3 className="font-sans text-cream text-sm md:text-base uppercase tracking-[0.14em] font-semibold group-hover:text-gold transition-colors">
-            <span className="relative inline-block">
-              {product.name}
-              <span className="absolute left-0 -bottom-1 h-px w-0 bg-gold group-hover:w-full transition-all duration-500 ease-out" />
-            </span>
-          </h3>
-          {product.note && (
-            <p className="mt-1.5 text-mist text-xs leading-relaxed max-w-xs">{product.note}</p>
-          )}
-        </div>
-        <span className="font-sans text-gold text-sm tracking-widest tabular-nums">
-          ${product.price}
-        </span>
-      </div>
-    </motion.a>
-  );
-}
+import type { Product } from "@/lib/types";
+import { ProductCard } from "./ProductCard";
 
 const apparelAspects = [
   "aspect-[4/5]",
@@ -88,14 +17,14 @@ export function ProductGrid({
   title,
   subtitle,
   products,
-  tactical,
+  layout = "asymmetric",
 }: {
   id: string;
   eyebrow: string;
   title: ReactNode;
   subtitle?: string;
   products: Product[];
-  tactical?: boolean;
+  layout?: "asymmetric" | "uniform";
 }) {
   return (
     <section id={id} className="relative py-28 md:py-40 bg-ink">
@@ -113,10 +42,10 @@ export function ProductGrid({
         </div>
         <div className="hairline mb-16 md:mb-20" />
 
-        {tactical ? (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-14">
+        {layout === "uniform" ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-14">
             {products.map((p) => (
-              <ProductCard key={p.id} product={p} aspect="aspect-[4/5]" tactical />
+              <ProductCard key={p.id} product={p} aspect="aspect-[4/5]" />
             ))}
           </div>
         ) : (
