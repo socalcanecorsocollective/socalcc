@@ -5,22 +5,27 @@ import { Hero } from "@/components/site/Hero";
 import { StatementBand } from "@/components/site/StatementBand";
 import { ProductGrid } from "@/components/site/ProductGrid";
 import { Bloodline } from "@/components/site/Bloodline";
+import { PatchesPrints } from "@/components/site/PatchesPrints";
+import { Collective } from "@/components/site/Collective";
+import { DropsArchive } from "@/components/site/DropsArchive";
 import { Lookbook } from "@/components/site/Lookbook";
 import { Reserve } from "@/components/site/Reserve";
 import { Footer } from "@/components/site/Footer";
-import { apparel, packGear } from "@/lib/products";
+import { CartDrawer } from "@/components/site/CartDrawer";
+import { SectionDivider } from "@/components/site/SectionDivider";
+import { productsByCategory } from "@/lib/products";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "SCCC — Drop 001 · SoCal Cane Corso Co." },
+      { title: "SCCC — Chapter 001 · SoCal Cane Corso Co." },
       {
         name: "description",
         content:
-          "Drop 001 — a limited release of cinematic guardian apparel and pack gear from SoCal Cane Corso Co. Built on instinct. Defined by discipline.",
+          "SoCal Cane Corso Co. — an artist-run house of guardian apparel and pack gear. Chapter 001 authored by Xenvectors. Built on instinct. Defined by discipline.",
       },
-      { property: "og:title", content: "SCCC — Drop 001" },
-      { property: "og:description", content: "A limited release of guardian apparel and Cane Corso pack gear." },
+      { property: "og:title", content: "SCCC — Chapter 001" },
+      { property: "og:description", content: "Artist-run guardian goods. Chapter 001 by Xenvectors." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -39,12 +44,14 @@ function Home() {
       </a>
       <SmoothScroll />
       <Nav />
+      <CartDrawer />
       <main>
         <Hero />
         <StatementBand />
+
         <ProductGrid
           id="apparel"
-          eyebrow="Chapter I · Apparel"
+          eyebrow="Chapter II · Apparel"
           title={
             <>
               For the{" "}
@@ -52,12 +59,15 @@ function Home() {
             </>
           }
           subtitle="Heavyweight cottons, hand-finished seams, and title-card typography. Cut for the ones who stand watch."
-          products={apparel}
+          products={productsByCategory("apparel")}
         />
+
+        <SectionDivider label="Chapter III" />
         <Bloodline />
+
         <ProductGrid
           id="gear"
-          eyebrow="Chapter III · Pack Gear"
+          eyebrow="Chapter IV · Pack Gear"
           title={
             <>
               For the{" "}
@@ -65,9 +75,14 @@ function Home() {
             </>
           }
           subtitle="MOLLE-ready harnesses, full-coverage vests, and lead systems engineered for working guardian breeds."
-          products={packGear}
-          tactical
+          products={productsByCategory("gear")}
+          layout="uniform"
         />
+
+        <PatchesPrints />
+        <SectionDivider label="Chapter VI" />
+        <Collective />
+        <DropsArchive />
         <Lookbook />
         <Reserve />
       </main>
