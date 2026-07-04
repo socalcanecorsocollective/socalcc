@@ -14,7 +14,7 @@ export function StatementBand() {
   const y = useTransform(scrollYProgress, [0, 1], ["8%", "-8%"]);
 
   return (
-    <section ref={ref} className="relative py-32 md:py-48 bg-ink grain overflow-hidden">
+    <section ref={ref} className="relative pt-32 md:pt-48 pb-16 md:pb-24 bg-ink grain overflow-hidden">
       <div className="hairline container-editorial mb-24" />
       <motion.div style={{ y }} className="container-editorial">
         <p className="eyebrow mb-10">The Creed — I</p>
@@ -44,7 +44,6 @@ export function StatementBand() {
           ))}
         </h2>
       </motion.div>
-      <div className="hairline container-editorial mt-24" />
     </section>
   );
 }

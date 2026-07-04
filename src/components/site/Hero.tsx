@@ -21,12 +21,15 @@ export function Hero() {
         <img
           src={heroImg.url}
           alt="Three Cane Corsos in tactical SCCC gear on cathedral steps"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover object-[center_35%]"
           fetchPriority="high"
         />
-        {/* atmospheric layers */}
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/60 via-ink/20 to-ink" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-transparent to-ink/50" />
+        {/* atmospheric layers — darker at edges, subject stays legible */}
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-transparent to-ink" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" style={{ backgroundSize: "100% 55%", backgroundRepeat: "no-repeat", backgroundPosition: "bottom" }} />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-ink/40" />
+        {/* subject vignette */}
+        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 45%, transparent 0%, transparent 35%, rgba(0,0,0,0.55) 90%)" }} />
       </motion.div>
 
       {/* grain */}
