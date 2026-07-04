@@ -1,4 +1,9 @@
 import alphaTee from "@/assets/product-alpha-tee.jpg.asset.json";
+import guardianHoodie from "@/assets/product-guardian-hoodie.jpg.asset.json";
+import packLeaderTee from "@/assets/product-pack-leader-tee.jpg.asset.json";
+import scccCap from "@/assets/product-sccc-cap.jpg.asset.json";
+import corsoCrewneck from "@/assets/product-corso-crewneck.jpg.asset.json";
+import legacyJacket from "@/assets/product-legacy-jacket.jpg.asset.json";
 import tacticalHarness from "@/assets/product-tactical-harness.webp.asset.json";
 import guardianVest from "@/assets/product-guardian-vest.webp.asset.json";
 import tacticalCollar from "@/assets/product-tactical-collar.webp.asset.json";
@@ -12,11 +17,11 @@ const GEAR_SIZES = ["S", "M", "L"];
 export const products: Product[] = [
   // ── Apparel — Chapter 001 · Xenvectors ─────────────────────────
   { id: "alpha-tee", name: "Alpha Tee", price: 45, images: [alphaTee.url], category: "apparel", chapterId: "chapter-001", artistId: "xenvectors", isNew: true, sizes: APPAREL_SIZES, desc: "Heavyweight 8oz cotton, boxy cut, hand-set neckband. The house tee." },
-  { id: "guardian-hoodie", name: "Guardian Hoodie", price: 85, images: [], category: "apparel", chapterId: "chapter-001", artistId: "xenvectors", sizes: APPAREL_SIZES, desc: "500gsm brushed fleece, double-layer hood, tonal gold embroidery." },
-  { id: "pack-leader-tee", name: "Pack Leader Tee", price: 45, images: [], category: "apparel", chapterId: "chapter-001", artistId: "xenvectors", sizes: APPAREL_SIZES, desc: "Complement to the Alpha. Cut for daily rotation." },
-  { id: "sccc-cap", name: "SCCC Cap", price: 35, images: [], category: "apparel", chapterId: "chapter-001", artistId: "xenvectors", sizes: ["One Size"], desc: "Six-panel unstructured cap, gold-stitched glyph." },
-  { id: "corso-crewneck", name: "Corso Crewneck", price: 70, images: [], category: "apparel", chapterId: "chapter-001", artistId: "xenvectors", isNew: true, sizes: APPAREL_SIZES, desc: "Heavy loopback crewneck, ribbed cuffs, dropped shoulder." },
-  { id: "legacy-jacket", name: "Legacy Jacket", price: 120, images: [], category: "apparel", chapterId: "chapter-001", artistId: "xenvectors", sizes: APPAREL_SIZES, desc: "Waxed cotton chore jacket, brass hardware, four utility pockets." },
+  { id: "guardian-hoodie", name: "Guardian Hoodie", price: 85, images: [guardianHoodie.url], category: "apparel", chapterId: "chapter-001", artistId: "xenvectors", sizes: APPAREL_SIZES, desc: "500gsm brushed fleece, double-layer hood, tonal gold embroidery." },
+  { id: "pack-leader-tee", name: "Pack Leader Tee", price: 45, images: [packLeaderTee.url], category: "apparel", chapterId: "chapter-001", artistId: "xenvectors", sizes: APPAREL_SIZES, desc: "Complement to the Alpha. Cut for daily rotation." },
+  { id: "sccc-cap", name: "SCCC Cap", price: 35, images: [scccCap.url], category: "apparel", chapterId: "chapter-001", artistId: "xenvectors", sizes: ["One Size"], desc: "Six-panel unstructured cap, gold-stitched glyph." },
+  { id: "corso-crewneck", name: "Corso Crewneck", price: 70, images: [corsoCrewneck.url], category: "apparel", chapterId: "chapter-001", artistId: "xenvectors", isNew: true, sizes: APPAREL_SIZES, desc: "Heavy loopback crewneck, ribbed cuffs, dropped shoulder." },
+  { id: "legacy-jacket", name: "Legacy Jacket", price: 120, images: [legacyJacket.url], category: "apparel", chapterId: "chapter-001", artistId: "xenvectors", sizes: APPAREL_SIZES, desc: "Waxed cotton chore jacket, brass hardware, four utility pockets." },
 
   // ── Pack Gear — Chapter 001 · Xenvectors ───────────────────────
   { id: "tactical-harness", name: "SCCC Tactical Harness", price: 95, images: [tacticalHarness.url], category: "gear", chapterId: "chapter-001", artistId: "xenvectors", isNew: true, sizes: GEAR_SIZES, desc: "MOLLE-ready tactical harness engineered for large working breeds." },
