@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { MascotSeal } from "./MascotSeal";
 import { useCart } from "@/lib/cart";
+import { useMagnetic } from "@/hooks/useMagnetic";
 
 const links = [
   { label: "Shop", to: "/shop" as const },
