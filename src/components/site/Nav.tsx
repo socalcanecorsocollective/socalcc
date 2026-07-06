@@ -63,7 +63,13 @@ export function Nav() {
               </li>
             ))}
             <li>
-              <Link to="/reserve" className="btn-reserve">Reserve</Link>
+              <motion.span
+                onMouseMove={reserveMagnet.onMouseMove}
+                onMouseLeave={reserveMagnet.onMouseLeave}
+                style={{ x: reserveMagnet.x, y: reserveMagnet.y, display: "inline-block" }}
+              >
+                <Link to="/reserve" className="btn-reserve">Reserve</Link>
+              </motion.span>
             </li>
             <li>
               <button
