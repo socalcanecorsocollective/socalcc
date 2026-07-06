@@ -3,11 +3,13 @@ import { useRef } from "react";
 import heroImg from "@/assets/hero-corsos.jpg.asset.json";
 import wordmark from "@/assets/wordmark.png.asset.json";
 import monogram from "@/assets/monogram.png.asset.json";
+import { useMagnetic } from "@/hooks/useMagnetic";
 
 const ease = [0.19, 1, 0.22, 1] as const;
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
+  const magnet = useMagnetic(8);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
   const scale = useTransform(scrollYProgress, [0, 1], [1.08, 1.2]);
@@ -127,6 +129,9 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease, delay: 1.05 }}
+              onMouseMove={magnet.onMouseMove}
+              onMouseLeave={magnet.onMouseLeave}
+              style={{ x: magnet.x, y: magnet.y }}
               className="btn-reserve self-end bg-gold text-ink hover:bg-gold-bright"
             >
               Shop Drop 001 →

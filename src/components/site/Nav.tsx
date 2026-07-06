@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { MascotSeal } from "./MascotSeal";
 import { useCart } from "@/lib/cart";
+import { useMagnetic } from "@/hooks/useMagnetic";
 
 const links = [
   { label: "Shop", to: "/shop" as const },
@@ -16,6 +17,7 @@ export function Nav() {
   const [open, setOpen] = useState(false);
   const count = useCart((s) => s.count());
   const openCart = useCart((s) => s.setOpen);
+  const reserveMagnet = useMagnetic(8);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -61,7 +63,13 @@ export function Nav() {
               </li>
             ))}
             <li>
-              <Link to="/reserve" className="btn-reserve">Reserve</Link>
+              <motion.span
+                onMouseMove={reserveMagnet.onMouseMove}
+                onMouseLeave={reserveMagnet.onMouseLeave}
+                style={{ x: reserveMagnet.x, y: reserveMagnet.y, display: "inline-block" }}
+              >
+                <Link to="/reserve" className="btn-reserve">Reserve</Link>
+              </motion.span>
             </li>
             <li>
               <button
