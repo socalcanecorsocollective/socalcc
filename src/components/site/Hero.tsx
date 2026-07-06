@@ -9,6 +9,7 @@ const ease = [0.19, 1, 0.22, 1] as const;
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
+  const magnet = useMagnetic(8);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "22%"]);
   const scale = useTransform(scrollYProgress, [0, 1], [1.08, 1.2]);
