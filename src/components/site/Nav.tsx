@@ -17,6 +17,7 @@ export function Nav() {
   const [open, setOpen] = useState(false);
   const count = useCart((s) => s.count());
   const openCart = useCart((s) => s.setOpen);
+  const reserveMagnet = useMagnetic(8);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
