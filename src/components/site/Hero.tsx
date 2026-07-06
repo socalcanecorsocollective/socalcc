@@ -3,6 +3,7 @@ import { useRef } from "react";
 import heroImg from "@/assets/hero-corsos.jpg.asset.json";
 import wordmark from "@/assets/wordmark.png.asset.json";
 import monogram from "@/assets/monogram.png.asset.json";
+import { useMagnetic } from "@/hooks/useMagnetic";
 
 const ease = [0.19, 1, 0.22, 1] as const;
 
