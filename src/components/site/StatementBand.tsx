@@ -24,7 +24,7 @@ export function StatementBand() {
               <motion.span
                 initial={{ y: "110%" }}
                 whileInView={{ y: "0%" }}
-                viewport={{ once: true, margin: "-15%" }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 1.1, ease, delay: i * 0.12 }}
                 className="block"
               >
