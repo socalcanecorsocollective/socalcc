@@ -5,18 +5,29 @@ import { getArtist } from "@/lib/artists";
 import { getDrop } from "@/lib/drops";
 
 const ease = [0.19, 1, 0.22, 1] as const;
+const revealEase = [0.16, 1, 0.3, 1] as const;
 
-export function ProductCard({ product, aspect = "aspect-[4/5]" }: { product: Product; aspect?: string }) {
+export function ProductCard({
+  product,
+  aspect = "aspect-[4/5]",
+  index = 0,
+}: {
+  product: Product;
+  aspect?: string;
+  index?: number;
+}) {
   const artist = getArtist(product.artistId);
   const drop = getDrop(product.chapterId);
   const hasImage = product.images.length > 0;
+  // Stagger within a row only (max 80ms per neighbor, cap at 3 columns).
+  const delay = (index % 3) * 0.08;
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-10%" }}
-      transition={{ duration: 0.9, ease }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.7, ease: revealEase, delay }}
       className="group"
     >
       <Link
