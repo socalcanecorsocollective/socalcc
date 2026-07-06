@@ -44,14 +44,14 @@ export function ProductGrid({
 
         {layout === "uniform" ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-14">
-            {products.map((p) => (
-              <ProductCard key={p.id} product={p} aspect="aspect-[4/5]" />
+            {products.map((p, i) => (
+              <ProductCard key={p.id} product={p} aspect="aspect-[4/5]" index={i} />
             ))}
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 md:gap-x-10 gap-y-14 md:gap-y-6">
             {products.map((p, i) => (
-              <ProductCard key={p.id} product={p} aspect={apparelAspects[i % apparelAspects.length]} />
+              <ProductCard key={p.id} product={p} aspect={apparelAspects[i % apparelAspects.length]} index={i} />
             ))}
           </div>
         )}
