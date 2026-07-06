@@ -129,6 +129,9 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease, delay: 1.05 }}
+              onMouseMove={magnet.onMouseMove}
+              onMouseLeave={magnet.onMouseLeave}
+              style={{ x: magnet.x, y: magnet.y }}
               className="btn-reserve self-end bg-gold text-ink hover:bg-gold-bright"
             >
               Shop Drop 001 →
