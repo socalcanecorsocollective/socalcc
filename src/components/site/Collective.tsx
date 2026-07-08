@@ -40,9 +40,13 @@ export function Collective() {
             >
               <Link to="/artist/$id" params={{ id: a.id }} className="block">
                 <div className="relative aspect-[4/5] bg-ink border border-gold/20 overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <MascotSeal variant="watermark" className="h-2/3" />
-                  </div>
+                  <img
+                    src={a.portrait}
+                    alt={`${a.name} studio portrait`}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-5">
                     <p className="text-[0.6rem] tracking-[0.32em] uppercase text-gold mb-2">
                       Chapter 001 · Founding
