@@ -2,7 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { artists } from "@/lib/artists";
-import { MascotSeal } from "./MascotSeal";
+import guest002 from "@/assets/collective-guest-002.jpg.asset.json";
+import guest003 from "@/assets/collective-guest-003.jpg.asset.json";
 
 const ease = [0.19, 1, 0.22, 1] as const;
 
