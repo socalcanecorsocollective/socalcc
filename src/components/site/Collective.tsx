@@ -67,19 +67,31 @@ export function Collective() {
           ))}
 
           {/* Guest slots */}
-          {["Chapter 002", "Chapter 003"].map((label) => (
+          {[
+            { label: "Chapter 002", image: guest002.url, alt: "Chapter 002 guest artist studio" },
+            { label: "Chapter 003", image: guest003.url, alt: "Chapter 003 guest artist studio" },
+          ].map(({ label, image, alt }) => (
             <div
               key={label}
-              className="relative aspect-[4/5] border border-dashed border-gold/25 flex flex-col items-center justify-center text-center p-8"
+              className="group relative aspect-[4/5] border border-dashed border-gold/25 overflow-hidden"
             >
-              <span className="text-[0.6rem] tracking-[0.32em] uppercase text-muted-ink mb-3">
-                {label}
-              </span>
-              <p className="font-display uppercase text-cream/60 text-2xl tracking-tight">
-                Guest Artist
-              </p>
-              <span className="mt-3 h-px w-10 bg-gold/40" />
-              <p className="mt-3 text-xs text-muted-ink tracking-widest">To be announced</p>
+              <img
+                src={image}
+                alt={alt}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]"
+              />
+              <div className="absolute inset-0 bg-ink/60" />
+              <div className="relative z-10 flex flex-col items-center justify-center text-center p-8 h-full">
+                <span className="text-[0.6rem] tracking-[0.32em] uppercase text-muted-ink mb-3">
+                  {label}
+                </span>
+                <p className="font-display uppercase text-cream/60 text-2xl tracking-tight">
+                  Guest Artist
+                </p>
+                <span className="mt-3 h-px w-10 bg-gold/40" />
+                <p className="mt-3 text-xs text-muted-ink tracking-widest">To be announced</p>
+              </div>
             </div>
           ))}
         </div>
