@@ -2,7 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { artists } from "@/lib/artists";
-import { MascotSeal } from "./MascotSeal";
+import guest002 from "@/assets/collective-guest-002.jpg.asset.json";
+import guest003 from "@/assets/collective-guest-003.jpg.asset.json";
 
 const ease = [0.19, 1, 0.22, 1] as const;
 
@@ -39,9 +40,13 @@ export function Collective() {
             >
               <Link to="/artist/$id" params={{ id: a.id }} className="block">
                 <div className="relative aspect-[4/5] bg-ink border border-gold/20 overflow-hidden">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <MascotSeal variant="watermark" className="h-2/3" />
-                  </div>
+                  <img
+                    src={a.portrait}
+                    alt={`${a.name} studio portrait`}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-5">
                     <p className="text-[0.6rem] tracking-[0.32em] uppercase text-gold mb-2">
                       Chapter 001 · Founding
@@ -62,19 +67,31 @@ export function Collective() {
           ))}
 
           {/* Guest slots */}
-          {["Chapter 002", "Chapter 003"].map((label) => (
+          {[
+            { label: "Chapter 002", image: guest002.url, alt: "Chapter 002 guest artist studio" },
+            { label: "Chapter 003", image: guest003.url, alt: "Chapter 003 guest artist studio" },
+          ].map(({ label, image, alt }) => (
             <div
               key={label}
-              className="relative aspect-[4/5] border border-dashed border-gold/25 flex flex-col items-center justify-center text-center p-8"
+              className="group relative aspect-[4/5] border border-dashed border-gold/25 overflow-hidden"
             >
-              <span className="text-[0.6rem] tracking-[0.32em] uppercase text-muted-ink mb-3">
-                {label}
-              </span>
-              <p className="font-display uppercase text-cream/60 text-2xl tracking-tight">
-                Guest Artist
-              </p>
-              <span className="mt-3 h-px w-10 bg-gold/40" />
-              <p className="mt-3 text-xs text-muted-ink tracking-widest">To be announced</p>
+              <img
+                src={image}
+                alt={alt}
+                loading="lazy"
+                className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]"
+              />
+              <div className="absolute inset-0 bg-ink/60" />
+              <div className="relative z-10 flex flex-col items-center justify-center text-center p-8 h-full">
+                <span className="text-[0.6rem] tracking-[0.32em] uppercase text-muted-ink mb-3">
+                  {label}
+                </span>
+                <p className="font-display uppercase text-cream/60 text-2xl tracking-tight">
+                  Guest Artist
+                </p>
+                <span className="mt-3 h-px w-10 bg-gold/40" />
+                <p className="mt-3 text-xs text-muted-ink tracking-widest">To be announced</p>
+              </div>
             </div>
           ))}
         </div>
