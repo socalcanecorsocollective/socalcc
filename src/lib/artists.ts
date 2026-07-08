@@ -1,10 +1,12 @@
 import type { Artist } from "./types";
+import xenvectorsPortrait from "@/assets/collective-xenvectors.jpg.asset.json";
 
 export const artists: Artist[] = [
   {
     id: "xenvectors",
     name: "Xenvectors",
     handle: "@xenvectors",
+    portrait: xenvectorsPortrait.url,
     bio: "Founding studio of SCCC. Xenvectors authored the house identity — the wordmark, the mascot mark, and the visual doctrine that Chapter 001 is cut from.",
     statement:
       "We drew Chapter 001 for the ones who stand watch. Roman lineage, SoCal light, and the quiet weight of the working guardian.",
