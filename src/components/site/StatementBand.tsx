@@ -14,17 +14,17 @@ export function StatementBand() {
   const y = useTransform(scrollYProgress, [0, 1], ["8%", "-8%"]);
 
   return (
-    <section ref={ref} className="relative pt-32 md:pt-48 pb-16 md:pb-24 bg-ink grain overflow-hidden">
-      <div className="hairline container-editorial mb-24" />
+    <section ref={ref} className="relative pt-16 md:pt-24 pb-16 md:pb-24 bg-ink grain overflow-hidden">
+      <div className="hairline container-editorial mb-12 md:mb-16" />
       <motion.div style={{ y }} className="container-editorial">
         <p className="eyebrow mb-10">The Creed — I</p>
         <h2 className="title-lg text-cream max-w-6xl">
           {lines.map((line, i) => (
             <span key={line} className="block overflow-hidden">
               <motion.span
-                initial={{ y: "110%" }}
-                whileInView={{ y: "0%" }}
-                viewport={{ once: true, amount: 0.2 }}
+                initial={{ y: "110%", opacity: 0 }}
+                whileInView={{ y: "0%", opacity: 1 }}
+                viewport={{ once: true, amount: 0.1 }}
                 transition={{ duration: 1.1, ease, delay: i * 0.12 }}
                 className="block"
               >
@@ -45,5 +45,6 @@ export function StatementBand() {
         </h2>
       </motion.div>
     </section>
+
   );
 }
