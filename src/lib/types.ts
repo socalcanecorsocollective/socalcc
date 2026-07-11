@@ -11,7 +11,7 @@ export type CategoryDef = {
 export const categories: CategoryDef[] = [
   { id: "apparel", label: "Apparel", tagline: "For the Guardian.", eyebrow: "Chapter II · Apparel" },
   { id: "gear", label: "Pack Gear", tagline: "For the Cane Corso.", eyebrow: "Chapter IV · Pack Gear" },
-  { id: "patches", label: "Patches & Prints", tagline: "For the Collector.", eyebrow: "Chapter I · Patches & Prints" },
+  { id: "patches", label: "Patches & Prints", tagline: "For the Collector.", eyebrow: "Chapter V · Patches & Prints" },
 ];
 
 export const futureCategories = [
