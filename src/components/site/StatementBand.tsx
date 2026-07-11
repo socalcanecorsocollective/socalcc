@@ -1,5 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 const ease = [0.19, 1, 0.22, 1] as const;
 const lines = [
@@ -9,15 +8,10 @@ const lines = [
 ];
 
 export function StatementBand() {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["8%", "-8%"]);
-
   return (
-    <section ref={ref} className="relative pt-16 md:pt-24 pb-16 md:pb-24 bg-ink grain overflow-hidden">
-      <div className="hairline container-editorial mb-12 md:mb-16" />
-      <motion.div style={{ y }} className="container-editorial">
-        <p className="eyebrow mb-10">The Creed — I</p>
+    <section className="relative pt-10 md:pt-16 pb-16 md:pb-24 bg-ink grain overflow-hidden">
+      <div className="container-editorial">
+        <p className="eyebrow mb-8">The Creed — I</p>
         <h2 className="title-lg text-cream max-w-6xl">
           {lines.map((line, i) => (
             <span key={line} className="block overflow-hidden">
@@ -43,8 +37,7 @@ export function StatementBand() {
             </span>
           ))}
         </h2>
-      </motion.div>
+      </div>
     </section>
-
   );
 }
