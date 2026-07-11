@@ -15,7 +15,7 @@ export function Lookbook() {
       <div className="container-editorial mb-12">
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <div>
-            <p className="eyebrow mb-5">Chapter II</p>
+            <p className="eyebrow mb-5">Chapter VIII · Lookbook</p>
             <h2 className="title-lg text-cream">Lookbook.</h2>
           </div>
           <p className="text-mist text-sm max-w-xs">
