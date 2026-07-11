@@ -14,7 +14,7 @@ export function Reserve() {
       />
       <div className="container-editorial relative">
         <div className="max-w-3xl">
-          <p className="eyebrow mb-6">Chapter IX · Reserve</p>
+          <p className="eyebrow mb-6">Chapter VIII · Reserve</p>
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}

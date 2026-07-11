@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SmoothScroll } from "@/components/site/SmoothScroll";
 import { Nav } from "@/components/site/Nav";
 import { Hero } from "@/components/site/Hero";
-import { StatementBand } from "@/components/site/StatementBand";
 import { ProductGrid } from "@/components/site/ProductGrid";
 import { Bloodline } from "@/components/site/Bloodline";
 import { PatchesPrints } from "@/components/site/PatchesPrints";
@@ -47,11 +46,10 @@ function Home() {
       <CartDrawer />
       <main>
         <Hero />
-        <StatementBand />
 
         <ProductGrid
           id="apparel"
-          eyebrow="Chapter II · Apparel"
+          eyebrow="Chapter I · Apparel"
           title={
             <>
               For the{" "}
@@ -62,12 +60,12 @@ function Home() {
           products={productsByCategory("apparel")}
         />
 
-        <SectionDivider label="Chapter III" />
+        <SectionDivider label="Chapter II" />
         <Bloodline />
 
         <ProductGrid
           id="gear"
-          eyebrow="Chapter IV · Pack Gear"
+          eyebrow="Chapter III · Pack Gear"
           title={
             <>
               For the{" "}
@@ -80,7 +78,7 @@ function Home() {
         />
 
         <PatchesPrints />
-        <SectionDivider label="Chapter VI" />
+        <SectionDivider label="Chapter V" />
         <Collective />
         <DropsArchive />
         <Lookbook />

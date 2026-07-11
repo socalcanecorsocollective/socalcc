@@ -15,7 +15,7 @@ export function Collective() {
       <div className="container-editorial">
         <div className="grid md:grid-cols-[auto_1fr] md:items-end gap-8 mb-16 md:mb-24">
           <div>
-            <p className="eyebrow mb-5">Chapter VI · The Collective</p>
+            <p className="eyebrow mb-5">Chapter V · The Collective</p>
             <h2 className="title-lg text-cream">
               Authored by <span style={{ fontFamily: "var(--font-blackletter)" }} className="text-gold normal-case italic">Artists</span>.
             </h2>
