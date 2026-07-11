@@ -27,7 +27,7 @@ export function DropsArchive() {
       <div className="container-editorial">
         <div className="grid md:grid-cols-[auto_1fr] md:items-end gap-8 mb-16 md:mb-24">
           <div>
-            <p className="eyebrow mb-5">Chapter VII · Archive</p>
+            <p className="eyebrow mb-5">Chapter VI · Archive</p>
             <h2 className="title-lg text-cream">
               The <span style={{ fontFamily: "var(--font-blackletter)" }} className="text-gold normal-case italic">Chapters</span>.
             </h2>
